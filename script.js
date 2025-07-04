@@ -8,12 +8,12 @@ const barra = document.getElementById("barra-progreso");
 const mensaje = document.getElementById("mensaje-arriba");
 
 const mensajes = [
-  "Pensando en todos nuestros recuerdos azules...",
+  "Pensando en todos nuestros recuerdos...",
   "Preparando un momento mágico solo para ti...",
   "Cargando aventuras y sonrisas...",
   "Cada segundo nos acerca más...",
   "¿Lista para la sorpresa?",
-  "El universo está pintado de azul para ti...",
+  "El universo está brillando para ti...",
   "¡Esto será inolvidable!"
 ];
 
