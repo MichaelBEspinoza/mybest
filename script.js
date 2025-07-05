@@ -10,6 +10,7 @@ const contadorContainer = document.getElementById("contadorContainer");
 const orbitContainer = document.getElementById("orbitContainer");
 const cartaPrincipal = document.getElementById("cartaPrincipal");
 const botonCentral = document.getElementById("centralButton");
+const audioButton = document.getElementById("audioButton");
 
 const audio = new Audio('starry-eyed.mp3');
 
@@ -62,11 +63,20 @@ actualizarCuenta();
 
 startButton.addEventListener("click", () => {
   contadorContainer.style.opacity = 0;
+
+  audio.play().catch(() => {
+    audioButton.style.display = "block";
+  });
+
   setTimeout(() => {
     contadorContainer.style.display = "none";
     orbitContainer.style.display = "block";
-    audio.play();
   }, 1500);
+});
+
+audioButton.addEventListener("click", () => {
+  audio.play();
+  audioButton.style.display = "none";
 });
 
 botonCentral.addEventListener("click", () => {
