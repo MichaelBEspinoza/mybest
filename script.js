@@ -1,4 +1,4 @@
-const objetivo = new Date().getTime(); // Para prueba instantánea
+const objetivo = new Date("2025-07-04T19:00:00").getTime(); // Para prueba instantánea
 const inicio = new Date().getTime();
 const totalDuracion = objetivo - inicio;
 
