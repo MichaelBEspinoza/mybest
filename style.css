@@ -5,44 +5,29 @@ body {
   font-family: 'Courier New', monospace;
 }
 
-.glitch-bg {
+.galaxy-bg {
+  background: url('galaxy.png') center center / cover no-repeat;
   position: fixed;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    #000,
-    #000 2px,
-    #111 2px,
-    #111 4px
-  );
-  animation: glitchbg 0.3s infinite;
-  opacity: 0.07;
   z-index: 0;
-  pointer-events: none;
 }
 
-@keyframes glitchbg {
-  0% { transform: translate(0px, 0px); }
-  33% { transform: translate(1px, -1px); }
-  66% { transform: translate(-1px, 1px); }
-  100% { transform: translate(0px, 0px); }
-}
+
 
 .contenedor {
   z-index: 2;
   position: relative;
   text-align: center;
   top: 30vh;
+  color: white;
+  transition: opacity 1.5s ease;
 }
 
 .fase-titulo {
-  color: white;
   font-size: 2em;
   margin-bottom: 40px;
-  text-align: center;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px #00f;
+  text-shadow: 0 0 10px #fff;
 }
 
 .mensaje-arriba {
@@ -59,24 +44,21 @@ body {
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 10px #00f;
+  box-shadow: 0 0 10px #0ff;
 }
 
 .barra-progreso {
   height: 100%;
   width: 0%;
-  background: linear-gradient(to right, #00f, #0ff);
+  background: linear-gradient(to right, #0ff, #fff);
   transition: width 1s ease;
 }
 
 .contador-glow {
   font-size: 3em;
-  color: #fff;
   margin-top: 30px;
-  text-shadow: 0 0 8px #fff, 0 0 20px #00f, 0 0 40px #00f;
-  letter-spacing: 4px;
-  animation: parpadeo 1.5s infinite, hackeo 0.3s steps(1, end) infinite;
-  transition: all 0.5s ease;
+  text-shadow: 0 0 8px #fff, 0 0 20px #0ff, 0 0 40px #0ff;
+  animation: parpadeo 1.5s infinite;
 }
 
 @keyframes parpadeo {
@@ -84,27 +66,126 @@ body {
   50% { opacity: 0.8; }
 }
 
-@keyframes hackeo {
-  0% { filter: blur(0.8px); }
-  50% { filter: blur(1.2px); transform: scale(1.01); }
-  100% { filter: blur(0.8px); }
+#startButton {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background: none;
+  color: #0ff;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.humo {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  width: 400px;
-  height: 400px;
+#startButton:hover {
+  background: #0ff;
+  color: black;
+}
+
+.orbit-container {
+  position: fixed;
+  top: 45%;   /* Antes: 48% */
+  left: 47%;  /* Antes: 49% */
+  width: 700%; /* Aumentamos para que orbitas sean más grandes */
+  height: 500px;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
-  animation: humo-flotar 5s infinite ease-in-out;
-  pointer-events: none;
-  z-index: -1;
 }
 
-@keyframes humo-flotar {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -52%) scale(1.05); }
-  100% { transform: translate(-50%, -50%) scale(1); }
+
+
+
+.central-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, -30%); /* Antes: translate(-50%, -50%) */
+  padding: 15px 25px;
+  border: 2px solid #0ff;
+  background: none;
+  color: #0ff;
+  border-radius: 12px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
+
+
+.central-button:hover {
+  background: #0ff;
+  color: black;
+}
+
+.orbit-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 15px;
+  border: 2px solid #0ff;
+  background: none;
+  color: #0ff;
+  border-radius: 150px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.orbit-button:hover {
+  background: #0ff;
+  color: black;
+}
+
+.orbit1 {
+  animation: orbitAnim1 15s linear infinite;
+}
+
+.orbit2 {
+  animation: orbitAnim2 15s linear infinite;
+}
+
+.orbit3 {
+  animation: orbitAnim3 15s linear infinite;
+}
+
+@keyframes orbitAnim1 {
+  0% { transform: rotate(0deg) translateX(220px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(220px) rotate(-360deg); }
+}
+
+@keyframes orbitAnim2 {
+  0% { transform: rotate(120deg) translateX(220px) rotate(-120deg); }
+  100% { transform: rotate(480deg) translateX(220px) rotate(-480deg); }
+}
+
+@keyframes orbitAnim3 {
+  0% { transform: rotate(240deg) translateX(220px) rotate(-240deg); }
+  100% { transform: rotate(600deg) translateX(220px) rotate(-600deg); }
+}
+
+
+.mini-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.mini-modal-content {
+  background: rgba(30, 30, 60, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: center;
+  box-shadow: 0 0 25px #0ff;
+  line-height: 1.8;
+}
+

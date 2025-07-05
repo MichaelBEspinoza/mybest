@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Para ti, mi mejor amiga 💙</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Fase #1: El contador</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="glitch-bg"></div>
+  <div class="galaxy-bg"></div>
 
-  <div class="contenedor">
-    <h2 class="fase-titulo">Fase #1:<br>Para ti, mi mejor amiga 💙</h2>
+  <div class="contenedor" id="contadorContainer">
+    <h2 class="fase-titulo">Fase #1:<br>El contador</h2>
 
-    <p class="mensaje-arriba" id="mensaje-arriba">Preparando una sorpresa azul...</p>
+    <p class="mensaje-arriba" id="mensaje-arriba">Preparando el destino...</p>
 
     <div class="barra-contenedor">
       <div class="barra-progreso" id="barra-progreso"></div>
@@ -19,7 +19,54 @@
 
     <h1 class="contador-glow" id="cuenta-regresiva">Cargando...</h1>
 
-    <div class="humo"></div>
+    <button id="startButton" style="display: none;">Para ti :3</button>
+  </div>
+
+  <!-- Botón central y orbitantes -->
+  <div id="orbitContainer" class="orbit-container" style="display: none;">
+    <button id="centralButton" class="central-button">💌 Mi cartita</button>
+    <button class="orbit-button orbit1" onclick="abrirCarta(1)">Pan juntos</button>
+    <button class="orbit-button orbit2" onclick="abrirCarta(2)">Nuestros silencios</button>
+    <button class="orbit-button orbit3" onclick="abrirCarta(3)">El destino</button>
+  </div>
+
+  <!-- Modales mini cartas -->
+  <div id="miniCarta1" class="mini-modal" style="display: none;">
+    <div class="mini-modal-content">
+      <p>Cocinar pan será la mejor excusa para reírnos, ensuciarnos y disfrutar el momento. No importa si nos sale quemado, importa que sea contigo. 🍞✨</p>
+      <button onclick="cerrarCarta(1)">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="miniCarta2" class="mini-modal" style="display: none;">
+    <div class="mini-modal-content">
+      <p>A veces no podemos hablar mucho, pero cada vez que aparece tu nombre siento emoción. Gracias por estar, aunque sea en silencios.</p>
+      <button onclick="cerrarCarta(2)">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="miniCarta3" class="mini-modal" style="display: none;">
+    <div class="mini-modal-content">
+      <p>Quién diría que tu hermano sería el hilo invisible que nos conectó. A veces la vida hace magia silenciosa, y hoy me alegro de esa magia.</p>
+      <button onclick="cerrarCarta(3)">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Carta principal -->
+  <div id="cartaPrincipal" class="mini-modal" style="display: none;">
+    <div class="mini-modal-content">
+      <p>¡Hola! 🌌<br><br>
+        Hoy espero que hayas tenido un día increíble en tu convivencia. Ojalá hayas reído mucho, bailado, disfrutado cada segundo y sentido el cariño de tus amigos y compañeros.<br><br>
+        Se acerca tu graduación, y sé que es un momento emocionante, lleno de miedos, sueños y comienzos. Quiero que sepas que aunque llevamos poco tiempo de conocernos, yo ya admiro profundamente tu forma de brillar. Admiro tu forma de hablar, de reír, de perderte en tus pensamientos y hasta de olvidar contestar a veces — porque eso también te hace humana, real y preciosa.<br><br>
+        Gracias por cada instante, por cada conversación corta o larga, por los silencios y por esos mensajes que llegan cuando menos lo espero y me sacan una sonrisa.<br><br>
+        Me siento afortunado de que el destino, con la ayuda de tu hermano, haya decidido cruzar nuestros caminos. Creo que a veces las estrellas se alinean de formas misteriosas para mostrarnos a personas especiales, y yo no pienso desaprovechar esa oportunidad.<br><br>
+        Aún tenemos pendiente nuestra cita para hacer pan. Yo la imagino llena de harina en el aire, de risas tontas y de bromas. No sé si el pan saldrá delicioso o un desastre total, pero sé que el recuerdo será perfecto, porque será contigo.<br><br>
+        Esta pequeña galaxia que hice es mi manera de decirte que te valoro mucho. Que aunque no hablemos siempre, aquí estoy, girando en tu órbita, feliz de existir cerca tuyo, aunque sea un poquito.<br><br>
+        Gracias por ser tú, por existir, por tu luz. Espero que un día, cuando leas esto, sientas que alguien piensa en ti con cariño verdadero.<br><br>
+        ✨💙
+      </p>
+      <button onclick="cerrarCartaPrincipal()">Cerrar</button>
+    </div>
   </div>
 
   <script src="script.js"></script>

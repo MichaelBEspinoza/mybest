@@ -1,20 +1,26 @@
-// Fecha: 4 de julio de 2025 a las 19:00
-const objetivo = new Date("2025-07-04T19:00:00").getTime();
+const objetivo = new Date().getTime(); // Para prueba instantánea
 const inicio = new Date().getTime();
 const totalDuracion = objetivo - inicio;
 
 const contador = document.getElementById("cuenta-regresiva");
 const barra = document.getElementById("barra-progreso");
 const mensaje = document.getElementById("mensaje-arriba");
+const startButton = document.getElementById("startButton");
+const contadorContainer = document.getElementById("contadorContainer");
+const orbitContainer = document.getElementById("orbitContainer");
+const cartaPrincipal = document.getElementById("cartaPrincipal");
+const botonCentral = document.getElementById("centralButton");
+
+const audio = new Audio('starry-eyed.mp3');
 
 const mensajes = [
-  "Pensando en todos nuestros recuerdos...",
-  "Preparando un momento mágico solo para ti...",
-  "Cargando aventuras y sonrisas...",
-  "Cada segundo nos acerca más...",
-  "¿Lista para la sorpresa?",
-  "El universo está brillando para ti...",
-  "¡Esto será inolvidable!"
+  "Preparando el destino...",
+  "Cargando secretos...",
+  "Descifrando coordenadas...",
+  "A punto de revelarse...",
+  "Algo grande se aproxima...",
+  "¿Estás lista para descubrirlo?",
+  "Las estrellas están alineándose..."
 ];
 
 let indiceMensaje = 0;
@@ -33,9 +39,10 @@ function actualizarCuenta() {
   const transcurrido = ahora - inicio;
 
   if (restante <= 0) {
-    contador.innerText = "¡Llegó el momento! 💙✨";
+    contador.innerText = "¡Llegó el día! 💖";
     barra.style.width = "100%";
-    mensaje.innerText = "Gracias por ser tú. 💙";
+    mensaje.innerText = "Bienvenida a la siguiente fase... ✨";
+    startButton.style.display = "inline-block";
     return;
   }
 
@@ -52,3 +59,28 @@ function actualizarCuenta() {
 
 setInterval(actualizarCuenta, 1000);
 actualizarCuenta();
+
+startButton.addEventListener("click", () => {
+  contadorContainer.style.opacity = 0;
+  setTimeout(() => {
+    contadorContainer.style.display = "none";
+    orbitContainer.style.display = "block";
+    audio.play();
+  }, 1500);
+});
+
+botonCentral.addEventListener("click", () => {
+  cartaPrincipal.style.display = "flex";
+});
+
+function abrirCarta(num) {
+  document.getElementById(`miniCarta${num}`).style.display = "flex";
+}
+
+function cerrarCarta(num) {
+  document.getElementById(`miniCarta${num}`).style.display = "none";
+}
+
+function cerrarCartaPrincipal() {
+  cartaPrincipal.style.display = "none";
+}
